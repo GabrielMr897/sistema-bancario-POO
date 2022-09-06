@@ -5,6 +5,14 @@ public class Conta {
   public String titular;
   public double saldo;
 
+
+  // It's a constructor.
+  public Conta(String titular, int numero, double saldo) {
+    this.titular = titular;
+    this.numero = numero;
+    this.saldo = saldo;
+  }
+
   public boolean sacar(double valor) {
      if(this.saldo < valor) {
       JOptionPane.showMessageDialog(null,"Não é possível fazer esse saque, Seu saldo é: " + saldo);
