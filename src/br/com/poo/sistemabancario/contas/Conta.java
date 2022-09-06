@@ -1,5 +1,5 @@
 package br.com.poo.sistemabancario.contas;
-
+import javax.swing.JOptionPane;
 public class Conta {
   public int numero;
   public String titular;
@@ -7,10 +7,10 @@ public class Conta {
 
   public boolean sacar(double valor) {
      if(this.saldo < valor) {
-      System.err.println("Não é possível fazer esse saque, Seu saldo é: " + saldo);
+      JOptionPane.showMessageDialog(null,"Não é possível fazer esse saque, Seu saldo é: " + saldo);
       return false;
      }else {
-    
+      JOptionPane.showMessageDialog(null,"R$ " + valor + " sacado com sucesso!");
       this.saldo -= valor;
       return true;
      }
@@ -18,7 +18,7 @@ public class Conta {
   }
   public void deposito(double valor) {
     if(valor < 0) {
-      System.out.println("Valor de depósito inválido");
+      JOptionPane.showMessageDialog(null,"Valor de depósito inválido");
     } else {
       this.saldo += valor;
     }
@@ -26,10 +26,10 @@ public class Conta {
 
   public boolean transferencia(double valor, Conta numero){ 
     if(this.saldo < valor) {
-      System.err.println("Não é possível fazer essa transferência, Seu saldo é: " + saldo);
+      JOptionPane.showMessageDialog(null,"Não é possível fazer essa transferência, seu saldo é: " + saldo);
       return false;
      }else {
-      System.out.println("Transferido com sucesso!");
+      JOptionPane.showMessageDialog(null,"R$ " + valor + " Transferido com sucesso!");
       this.saldo -= valor;
       numero.deposito(valor);
       return true;
